@@ -1,0 +1,116 @@
+📘 FRSC Admin API Docs
+🌐 Base URL: https://frscadmin.onrender.com
+
+All requests and responses use application/json.
+
+🔁 Endpoints Overview
+Method	Endpoint	Description
+GET	/api/units/	Get list of all units (with employees)
+POST	/api/units/	Create a new unit
+POST	/api/employees/	Submit employee form (create new employee)
+GET	/api/units/<unit_id>/employees/	Get all employees under a specific unit
+GET	/api/employees/<employee_id>/	Get employee detail
+
+🔹 1. Get All Units
+GET /api/units/
+
+Returns all units and optionally, their employees.
+
+json
+Copy
+Edit
+[
+  {
+    "id": 1,
+    "name": "Operations",
+    "unit_id": "a1b2c3d",
+    "employees": [
+      {
+        "id": 3,
+        "name": "John Doe",
+        "section": "Traffic",
+        "email": "john@example.com",
+        "phone": "08012345678",
+        "employee_id": "x7y8z9a",
+        "created_at": "2025-07-15T12:30:00Z"
+      }
+    ]
+  }
+]
+🔹 2. Create a New Unit
+POST /api/units/
+
+json
+Copy
+Edit
+Request:
+{
+  "name": "ICT Department"
+}
+
+🔹 3. Submit Employee Form
+POST /api/employees/
+
+Used when an employee fills the form from frontend.
+
+json
+Copy
+Edit
+Request:
+{
+  "name": "Jane Doe",
+  "section": "Enforcement",
+  "unit": 1,  // ID of the unit (from GET /units/)
+  "email": "jane@example.com",
+  "phone": "08098765432"
+}
+json
+Copy
+Edit
+
+🔹 4. Get Employees by Unit
+GET /api/units/<unit_id>/employees/
+
+Example:
+
+bash
+Copy
+Edit
+GET /api/units/a1b2c3d/employees/
+Returns all employees under that unit.
+
+json
+Copy
+Edit
+[
+  {
+    "id": 3,
+    "name": "John Doe",
+    "section": "Traffic",
+    "email": "john@example.com",
+    "phone": "08012345678",
+    "employee_id": "x7y8z9a"
+  }
+]
+🔹 5. Get Employee Detail
+GET /api/employees/<employee_id>/
+
+Example:
+
+swift
+Copy
+Edit
+GET /api/employees/x7y8z9a/
+json
+Copy
+Edit
+{
+  "id": 3,
+  "name": "John Doe",
+  "section": "Traffic",
+  "unit": 1,
+  "email": "john@example.com",
+  "phone": "08012345678",
+  "employee_id": "x7y8z9a",
+  "created_at": "2025-07-15T12:30:00Z"
+}

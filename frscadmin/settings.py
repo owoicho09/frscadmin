@@ -46,12 +46,15 @@ INSTALLED_APPS = [
     'drf_yasg',             # Optional: Swagger/OpenAPI Docs
     'core',                 # Your app
 
+    'corsheaders',
     # Optional
     # 'cloudinary',
     # 'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # 🔥 must be first or near top
+
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -141,3 +144,6 @@ MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CORS_ALLOW_ALL_ORIGINS = True
+
