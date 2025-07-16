@@ -4,7 +4,7 @@ charset-normalizer==3.4.2
 cloudinary==1.44.1
 Django==5.2.4
 django-cloudinary-storage==0.3.0
-django-jazzmin @ git+https://github.com/farridav/django-jazzmin.git@d269874c96fe5ff6d231c3017cdd4650bc2f3105
+django-jazzmin
 django-shortuuidfield==0.1.3
 djangorestframework==3.16.0
 drf-yasg==1.21.10
