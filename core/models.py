@@ -25,11 +25,19 @@ class Unit(models.Model):
 
 
 class Employee(models.Model):
-    name = models.CharField(max_length=100)
-    section = models.CharField(max_length=100)
+    surname = models.CharField(max_length=100, blank=True, null=True)
+    first_name = models.CharField(max_length=100, blank=True, null=True)
+    other_names = models.CharField(max_length=100, blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
+    command = models.CharField(max_length=100, blank=True, null=True)
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name='employees')
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=20, blank=True, null=True)
+    next_of_kin_name = models.CharField(max_length=100, blank=True, null=True)
+    next_of_kin_phone = models.CharField(max_length=100, blank=True, null=True)
+
+    post = models.CharField(max_length=100, blank=True, null=True)
+    pin = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     employee_id = ShortUUIDField(

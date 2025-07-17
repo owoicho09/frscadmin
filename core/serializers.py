@@ -7,7 +7,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = ['id', 'employee_id', 'name', 'section', 'email', 'phone', 'created_at', 'unit']
+        fields = ['id', 'employee_id','post', 'first_name','surname','next_of_kin_name','next_of_kin_phone','other_names', 'command', 'email', 'phone', 'created_at', 'unit']
 
         depth = 0
     def to_representation(self, instance):

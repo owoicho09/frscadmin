@@ -13,6 +13,6 @@ class UnitAdmin(admin.ModelAdmin):
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('name', 'employee_id', 'unit', 'section', 'email', 'created_at')
+    list_display = ('first_name', 'employee_id', 'unit', 'command', 'email', 'created_at')
     list_filter = ('unit', 'created_at')
-    search_fields = ('name', 'email', 'phone')
+    search_fields = ('first_name', 'email', 'phone')
